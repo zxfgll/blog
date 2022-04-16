@@ -1,0 +1,10 @@
+{
+  "name": "webpack-demo6",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack",
+    "build:report":"webpack --mode production --progress"
+  },
+  "license": "MIT"
+}

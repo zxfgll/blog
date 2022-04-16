@@ -46,12 +46,14 @@ module.exports = createSidebarData;
 function readTocs(root) {
   const result = [];
   const files = fs.readdirSync(root); // 读取目录,返回数组，成员是root底下所有的目录名 (包含文件夹和文件)
-  files.forEach(name => {
+
+  for(const name of files){
     const file = path.resolve(root, name); // 将路径或路径片段的序列解析为绝对路径
     if (fs.statSync(file).isDirectory() && name !== '.vuepress' && name !== '@pages') { // 是否为文件夹目录，并排除.vuepress文件夹
       result.push(file);
     }
-  })
+  }
+  
   return result;
 }
 

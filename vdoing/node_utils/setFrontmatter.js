@@ -33,10 +33,12 @@ function setFrontmatter(sourceDir, themeConfig) {
       const dateStr = dateFormat(
         getBirthtime(stat)
       ); // 文件的创建时间
+
       const categories = getCategories(
         file,
         categoryText
       );
+
 
       let cateLabelStr = '';
       categories.forEach(item => {

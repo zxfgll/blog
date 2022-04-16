@@ -6,11 +6,16 @@ const path = require('path'); // 路径模块
 const chalk = require('chalk') // 命令行打印美化
 const log = console.log
 
-function readFileList (dir, filesList = []) {
+function readFileList(dir, filesList = []) {
   const files = fs.readdirSync(dir);
-  files.forEach((item, index) => {
+
+  for (const item of files) {
     let filePath = path.join(dir, item);
     const stat = fs.statSync(filePath);
+    if (item === 'codes') {
+      continue
+    }
+
     if (stat.isDirectory() && item !== '.vuepress' && item !== '@pages') {
       readFileList(path.join(dir, item), filesList);  //递归读取文件
     } else {
@@ -36,7 +41,9 @@ function readFileList (dir, filesList = []) {
         }
       }
     }
-  });
+  }
+
+
   return filesList;
 }
 

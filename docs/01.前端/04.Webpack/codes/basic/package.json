@@ -1,0 +1,11 @@
+{
+  "name": "webpack-demo1",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack serve --open",
+    "build": "webpack",
+    "build:report":"webpack --mode production --progress"
+  },
+  "license": "MIT"
+}

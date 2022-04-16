@@ -1,0 +1,11 @@
+{
+  "name": "webpack-demo10",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "build:test": "cross-env NODE_ENV=development webpack  --progress",
+    "build:pro": "cross-env NODE_ENV=production webpack --progress",
+    "build": "webpack"
+  },
+  "license": "MIT"
+}

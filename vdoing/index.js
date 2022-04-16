@@ -25,18 +25,18 @@ module.exports = (options, ctx) => {
   setFrontmatter(sourceDir, themeConfig)
 
   // 自动生成结构化侧边栏
-  const sidebar = themeConfig.sidebar
-  if (sidebar === 'structuring' || sidebar && sidebar.mode === 'structuring') {
-    const collapsable = themeConfig.sidebar.collapsable === false ? false : true
-    const sidebarData = getSidebarData(sourceDir, collapsable)
-    if (sidebarData) {
-      themeConfig.sidebar = sidebarData
-      log(chalk.blue('tip ') + chalk.green('add sidebar data. 成功生成侧边栏数据。'))
-    } else {
-      themeConfig.sidebar = 'auto'
-      log(chalk.yellow('warning: fail to add sidebar data, switch to "auto". 未能添加侧边栏数据，将切换为“auto”。'))
-    }
-  }
+  // const sidebar = themeConfig.sidebar
+  // if (sidebar === 'structuring' || sidebar && sidebar.mode === 'structuring') {
+  //   const collapsable = themeConfig.sidebar.collapsable === false ? false : true
+  //   const sidebarData = getSidebarData(sourceDir, collapsable)
+  //   if (sidebarData) {
+  //     themeConfig.sidebar = sidebarData
+  //     log(chalk.blue('tip ') + chalk.green('add sidebar data. 成功生成侧边栏数据。'))
+  //   } else {
+  //     themeConfig.sidebar = 'auto'
+  //     log(chalk.yellow('warning: fail to add sidebar data, switch to "auto". 未能添加侧边栏数据，将切换为“auto”。'))
+  //   }
+  // }
 
   // 分类页
   if (themeConfig.category !== false) {

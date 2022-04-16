@@ -28,7 +28,6 @@ export default ({
       }
     }
   })
-
   // 将对文章数据的处理结果混入Vue实例
   Vue.mixin(postsMixin)
 }
