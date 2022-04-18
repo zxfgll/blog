@@ -1,3 +1,6 @@
 [submodule "docs/01.前端/04.Webpack/webpack-demos-pro"]
 	path = docs/01.前端/04.Webpack/webpack-demos-pro
 	url = git@github.com:Lemonnnnnnnnnnn/webpack-demos-pro.git
+[submodule "docs/01.前端/04.Webpack/codes"]
+	path = docs/01.前端/04.Webpack/codes
+	url = git@github.com:Lemonnnnnnnnnnn/webpack-demos-pro.git
