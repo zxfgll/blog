@@ -1,15 +1,3 @@
----
-title: README
-date: 2022-04-15 21:00:21
-permalink: /pages/fb3efb/
-categories:
-  - 前端
-  - Webpack
-  - codes
-  - basic
-tags:
-  - 
----
 # webpack-dev-server
 
 webpack-dev-server 为你提供了一个基本的 web server，并且具有 live reloading(实时重新加载) 功能

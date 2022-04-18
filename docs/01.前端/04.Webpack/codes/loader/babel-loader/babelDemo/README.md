@@ -1,17 +1,3 @@
----
-title: README
-date: 2022-04-15 21:00:21
-permalink: /pages/fb0f81/
-categories:
-  - 前端
-  - Webpack
-  - codes
-  - loader
-  - babel-loader
-  - babelDemo
-tags:
-  - 
----
 [详细教程](https://www.jiangruitao.com/babel/) 
 
 # 总体思路

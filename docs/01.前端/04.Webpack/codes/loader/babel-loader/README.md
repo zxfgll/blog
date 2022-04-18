@@ -1,16 +1,3 @@
----
-title: README
-date: 2022-04-15 21:00:21
-permalink: /pages/f0ddb3/
-categories:
-  - 前端
-  - Webpack
-  - codes
-  - loader
-  - babel-loader
-tags:
-  - 
----
 # [babel-loader](https://www.webpackjs.com/loaders/babel-loader/)
 
 ### 什么是loader

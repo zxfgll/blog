@@ -1,15 +1,3 @@
----
-title: README
-date: 2022-04-15 21:00:21
-permalink: /pages/fd7323/
-categories:
-  - 前端
-  - Webpack
-  - codes
-  - asset-module
-tags:
-  - 
----
 摘抄于[webpack官网](https://webpack.docschina.org/guides/asset-modules/)
 
 # 资源模块

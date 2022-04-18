@@ -1,15 +1,3 @@
----
-title: README
-date: 2022-04-15 21:00:21
-permalink: /pages/12c567/
-categories:
-  - 前端
-  - Webpack
-  - codes
-  - code-splitting
-tags:
-  - 
----
 参考文档： https://reactjs.org/docs/code-splitting.html
 
 ### React的坑：

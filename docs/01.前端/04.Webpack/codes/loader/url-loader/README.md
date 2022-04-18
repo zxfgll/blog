@@ -1,16 +1,3 @@
----
-title: README
-date: 2022-04-15 21:00:21
-permalink: /pages/151e62/
-categories:
-  - 前端
-  - Webpack
-  - codes
-  - loader
-  - url-loader
-tags:
-  - 
----
 [url-loader](https://www.npmjs.com/package/url-loader)将文件转化为html标签
 
 ### 参数

@@ -1,15 +1,3 @@
----
-title: README
-date: 2022-04-15 21:00:21
-permalink: /pages/d77e69/
-categories:
-  - 前端
-  - Webpack
-  - codes
-  - loader
-tags:
-  - 
----
 ### 什么是loader
 返回一个对象的函数
 

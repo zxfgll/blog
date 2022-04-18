@@ -1,16 +1,3 @@
----
-title: README
-date: 2022-04-15 21:00:21
-permalink: /pages/cf87dc/
-categories:
-  - 前端
-  - Webpack
-  - codes
-  - loader
-  - css-loader
-tags:
-  - 
----
 # css-loader
 [CSS-loader](https://www.npmjs.com/package/css-loader)
 [webpack-css-loader](https://www.webpackjs.com/loaders/css-loader/)
