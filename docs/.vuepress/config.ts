@@ -19,6 +19,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       description: 'web前端技术博客。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github,webpack等技术文章。',
     }
   },
+
   // base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
 
   // 主题配置
@@ -235,7 +236,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           admin: ['Lemonnnnnnnnnnn'], // 对仓库有写权限的人
           // distractionFreeMode: true,
           pagerDirection: 'last', // 'first'正序 | 'last'倒序
-          
+
           // id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
           // title: '「评论」<%- frontmatter.title %>', // GitHub issue 的标题
           // labels: ['Gitalk', 'Comment'], // GitHub issue 的标签
