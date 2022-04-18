@@ -1,6 +1,6 @@
 服务器使用系统：Ubuntu 20.04
 
-远程连接工具：[electerm](https://electerm.html5beta.com/)
+远程连接工具：
 
 Http代理服务器：[nginx](https://www.nginx.cn/doc/general/overview.html)
 
