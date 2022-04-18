@@ -1,3 +1,6 @@
 [submodule "codes/webpack-demos-pro"]
 	path = codes/webpack-demos-pro
 	url = git@github.com:Lemonnnnnnnnnnn/webpack-demos-pro.git
+[submodule "codes/vue-study"]
+	path = codes/vue-study
+	url = git@github.com:Lemonnnnnnnnnnn/vue-study.git
