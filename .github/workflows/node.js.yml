@@ -24,3 +24,18 @@ jobs:
 
     - name : Build
       run : yarn build
+    
+    # 部署
+    - name : deploy
+      uses : easingthemes/ssh-deploy@v2.2.11
+      with : 
+        # Private Key
+        SSH_PRIVATE_KEY : ${{ secrets.ACCESS_TOKEN }}
+        # Remote host
+        REMOTE_HOST : ${{ secrets.HOST }} 
+        # Remote user
+        REMOTE_USER : ${{ secrets.USER }} 
+        # Source directory
+        SOURCE : "dist/"
+        # Target directory
+        TARGET : "/var/www/html/"
