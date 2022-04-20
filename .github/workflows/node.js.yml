@@ -25,17 +25,16 @@ jobs:
     - name : Build
       run : yarn build
     
-    # 部署
-    - name : deploy
-      uses : easingthemes/ssh-deploy@v2.2.11
-      with : 
-        # Private Key
-        SSH_PRIVATE_KEY : ${{ secrets.ACCESS_TOKEN }}
-        # Remote host
-        REMOTE_HOST : ${{ secrets.HOST }} 
-        # Remote user
-        REMOTE_USER : ${{ secrets.USER }} 
-        # Source directory
-        SOURCE : "dist/"
-        # Target directory
-        TARGET : "/var/www/html/"
+    - name: SCP deploy action
+      uses: nogsantos/ssh-scp-deploy@v1.3.0
+      with:
+        # Sorce dir to deploy
+        src: "dist/"
+        # SSH address
+        host: ${{ secrets.HOST }} 
+        # Remote dir path
+        remote: "/var/www/html/"
+        # SSH User name
+        user:  ${{ secrets.USER }} 
+        # Private key
+        key: ${{ secrets.ACCESS_TOKEN }}
