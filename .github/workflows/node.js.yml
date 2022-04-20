@@ -25,16 +25,14 @@ jobs:
     - name : Build
       run : yarn build
     
-    - name: SCP deploy action
-      uses: nogsantos/ssh-scp-deploy@v1.3.0
+    - name: 上传文件到远程服务器
+      uses: zhenyuWang/Upload-File-Action@v1.0.1
       with:
-        # Sorce dir to deploy
-        src: "dist/"
-        # SSH address
-        host: ${{ secrets.HOST }} 
-        # Remote dir path
-        remote: "/var/www/html/"
-        # SSH User name
-        user:  ${{ secrets.USER }} 
-        # Private key
-        key: ${{ secrets.ACCESS_TOKEN }}
+          username: ${{ secrets.USER }}
+          server: ${{ secrets.HOST }}
+          port: "22"
+          ssh_private_key: ${{ secrets.ACCESS_TOKEN }}
+          # 要上传文件所在目录
+          local_path: "./dist/*"
+          # 远程服务器目标路径
+          target_path: "/var/www/html/"
