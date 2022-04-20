@@ -33,19 +33,7 @@ jobs:
         SOURCE: "dist/"
         REMOTE_HOST: ${{ secrets.HOST }}
         REMOTE_USER: ${{ secrets.USER }}
+        ARGS: "-rltgoDzvO --delete"
         TARGET: "/var/www/html/"
     
-    # - name: 上传文件到远程服务器
-    #   uses: zhenyuWang/Upload-File-Action@v1.0.1
-    #   with:
-    #       username: ${{ secrets.USER }}
-    #       server: ${{ secrets.HOST }}
-    #       port: "22"
-    #       ssh_private_key: ${{ secrets.ACCESS_TOKEN }}
-    #       # 要上传文件所在目录
-    #       local_path: "./dist/*"
-    #       # 远程服务器目标路径
-    #       target_path: "/var/www/html/"
-
-
 
