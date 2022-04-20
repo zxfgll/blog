@@ -31,8 +31,8 @@ jobs:
       with:
         SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
         SOURCE: "dist/"
-        REMOTE_HOST: ${{ secrets.HOST }}
-        REMOTE_USER: ${{ secrets.USER }}
+        REMOTE_HOST: "101.35.18.131"
+        REMOTE_USER: "ubuntu"
         ARGS: "-rltgoDzvO --delete"
         TARGET: "/var/www/html/"
     
