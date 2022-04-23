@@ -4,3 +4,6 @@
 [submodule "codes/vue-study"]
 	path = codes/vue-study
 	url = git@github.com:Lemonnnnnnnnnnn/vue-study.git
+[submodule "codes/swr"]
+	path = codes/swr
+	url = git@github.com:Lemonnnnnnnnnnn/swr.git
