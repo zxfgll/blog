@@ -10,3 +10,6 @@
 [submodule "codes/vue-demo"]
 	path = codes/vue-demo
 	url = git@github.com:Lemonnnnnnnnnnn/vue-demo.git
+[submodule "codes/es6"]
+	path = codes/es6
+	url = git@github.com:Lemonnnnnnnnnnn/es6.git
