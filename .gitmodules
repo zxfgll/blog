@@ -10,3 +10,6 @@
 [submodule "codes/javaScript"]
 	path = codes/javaScript
 	url = git@github.com:Lemonnnnnnnnnnn/javaScript.git
+[submodule "codes/react-demo"]
+	path = codes/react-demo
+	url = git@github.com:Lemonnnnnnnnnnn/react-demo.git
