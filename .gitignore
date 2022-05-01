@@ -18,3 +18,4 @@ urls.txt
 .DS_Store
 
 pnpm-lock.yaml
+.pnpm-debug.log
