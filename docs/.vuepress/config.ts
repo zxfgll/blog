@@ -29,17 +29,34 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       { text: '首页', link: '/' },
       {
         text: '前端',
-        link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
+        link: '/categories/?category=前端/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
           // 说明：以下所有link的值只是在相应md文件头部定义的永久链接（不是什么特殊编码）。另外，注意结尾是有斜杠的
           {
             text: '前端文章',
             items: [
-              { text: 'Webpack', link: '/pages/8143cc480faf9a11/' },
+              { text: 'React', link: '/categories/?category=React/' },
+              { text: 'Vue', link: '/categories/?category=Vue/' },
+              { text: 'JavaScript', link: '/categories/?category=JavaScript/' },
+              { text: 'CSS', link: '/categories/?category=CSS/' },
+              { text: 'Webpack', link: '/categories/?category=Webpack/' },
             ],
           },
         ],
       },
+      {
+        text : '工具',
+        link : "/categories/?category=工具/",
+        items:[
+          {text : 'git' , link : '/categories/?category=git/'},
+          {text : '可视化工具' , link : '/categories/?category=可视化工具/'},
+          {text : 'vscode' , link : '/categories/?category=vscode/'},
+        ]
+      },
+      {
+        text : '随笔',
+        link : 'categories/?category=随笔',
+      }
     ],
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/logo.png', // 导航栏logo
@@ -58,9 +75,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
 
     // bodyBgImg: [
-    //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
-    //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
-    //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
+    //   'img/bg.jpeg',
+    //   'img/bg.jpg',
     // ], // body背景大图，默认无。 单张图片 String | 多张图片 Array, 多张图片时每隔15秒换一张。
     // bodyBgImgOpacity: 0.5, // body背景图透明度，选值 0.1~ 1.0, 默认0.5
     // titleBadge: false, // 文章标题前的图标是否显示，默认true
@@ -89,7 +105,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
-      avatar: 'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg',
+      avatar: '/img/logo.png',
       name: 'Lemon Lin',
       slogan: '踌躇前行的人',
     },
@@ -124,7 +140,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     },
 
     // 自定义hmtl(广告)模块
-    htmlModules
+    // htmlModules
   },
 
   // 注入到页面<head>中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
