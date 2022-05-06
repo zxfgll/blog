@@ -66,17 +66,17 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       {
         text: 'Vue',
         link: "/categories/?category=工具/",
-        items:[
+        items: [
           {
-            text : 'Vue核心概念',
+            text: 'Vue核心概念',
             items: [
               { text: 'data', link: '/pages/28b751/' },
               { text: '响应式原理', link: '/pages/984d41/' },
-              {text : 'Vue-Router-history' , link : '/pages/f16403/'}
+              { text: 'Vue-Router-history', link: '/pages/f16403/' }
             ]
           },
           {
-            text : 'Vue3',
+            text: 'Vue3',
             items: [
               { text: 'refs', link: '/pages/215460/' },
               { text: 'reactive', link: '/pages/f5d7a4/' },
@@ -87,38 +87,38 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         ]
       },
       {
-        text : 'Webpack',
-        items : [
-          {text : "简介" , link : '/pages/928506/'},
-          {text : "起步" , link : '/pages/a6ada6/'},
-          {text : "打包css" , link : '/pages/91599c/'},
+        text: 'Webpack',
+        items: [
+          { text: "简介", link: '/pages/928506/' },
+          { text: "起步", link: '/pages/a6ada6/' },
+          { text: "打包css", link: '/pages/91599c/' },
         ]
       },
       {
-        text : '后端',
-        items : [
-          {text : "linux-常用命令" , link : '/pages/5c3eec/'},
-          {text : "linux-ubuntu" , link : '/pages/fe5c4d/'},
-          {text : "linux-ssh" , link : '/pages/977de5/'},
-          {text : "docker-常用命令" , link : '/pages/57502f/'},
-          {text : "nodejs-执行命令行" , link : '/pages/923843/'},
+        text: '后端',
+        items: [
+          { text: "linux-常用命令", link: '/pages/5c3eec/' },
+          { text: "linux-ubuntu", link: '/pages/fe5c4d/' },
+          { text: "linux-ssh", link: '/pages/977de5/' },
+          { text: "docker-常用命令", link: '/pages/57502f/' },
+          { text: "nodejs-执行命令行", link: '/pages/923843/' },
         ]
       },
       {
-        text : '常用工具',
-        items : [
-          {text : "可视化工具集" , link : '/pages/5742e4/'},
-          {text : "git-常用指令" , link : '/pages/29bf33/'},
-          {text : "git-submodule" , link : '/pages/de04b7/'},
-          {text : "github-cli" , link : '/pages/5aec39/'},
-          {text : "vscode插件" , link : '/pages/ee06bf/'},
+        text: '常用工具',
+        items: [
+          { text: "可视化工具集", link: '/pages/5742e4/' },
+          { text: "git-常用指令", link: '/pages/29bf33/' },
+          { text: "git-submodule", link: '/pages/de04b7/' },
+          { text: "github-cli", link: '/pages/5aec39/' },
+          { text: "vscode插件", link: '/pages/ee06bf/' },
         ]
       },
       {
         text: '随笔',
-        items : [
+        items: [
           {
-            text : '心流',
+            text: '心流',
             link: '/pages/cf6f83/',
           }
         ]
@@ -340,6 +340,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   markdown: {
     lineNumbers: true,
     extractHeaders: ['h2', 'h3', 'h4', 'h5', 'h6'], // 提取标题到侧边栏的级别，默认['h2', 'h3']
+    toc: { includeLevel: [1, 2, 3, 4, 5] }
   },
 
   // 监听文件变化并重新构建
