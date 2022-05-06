@@ -13,9 +13,10 @@ todo :
 8. [ ] 微前端 [single-spa](https://zh-hans.single-spa.js.org/docs/getting-started-overview) [qiankun](https://qiankun.umijs.org/zh)
 9. [ ] python 学习笔记
 10. [ ] java 学习笔记
-11. [ x ] react
-    1.  [ ] swr
-    2.  [ ] recoil
-    3.  [ ] redux
-    4.  [ ] dva
+11. [ ] react
+    1.  [ x ] 基础使用
+    2.  [ ] swr
+    3.  [ ] recoil
+    4.  [ ] redux
+    5.  [ ] dva
 12. [ ] vue
