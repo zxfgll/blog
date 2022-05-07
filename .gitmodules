@@ -13,6 +13,3 @@
 [submodule "codes/react-demo"]
 	path = codes/react-demo
 	url = git@github.com:Lemonnnnnnnnnnn/react-demo.git
-[submodule "codes/python-demo"]
-	path = codes/python-demo
-	url = git@github.com:Lemonnnnnnnnnnn/python-demo.git
