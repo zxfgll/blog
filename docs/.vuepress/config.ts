@@ -6,6 +6,7 @@ import { defineConfig4CustomTheme, UserPlugins } from 'vuepress/config'
 import { VdoingThemeConfig } from 'vuepress-theme-vdoing/types'
 import dayjs from 'dayjs'
 import baiduCode from './config/baiduCode' // 百度统计hm码
+const nav = require('./nav')
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
   // theme: 'vdoing', // 使用npm包主题
@@ -24,106 +25,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   // 主题配置
   themeConfig: {
     // 导航配置
-    nav: [
-      { text: '首页', link: '/' },
-      {
-        text: 'React',
-        link: '/categories/?category=前端/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
-        items: [
-          // 说明：以下所有link的值只是在相应md文件头部定义的永久链接（不是什么特殊编码）。另外，注意结尾是有斜杠的
-          {
-            text: 'React',
-            items: [
-              { text: '懒加载', link: '/pages/326b58/' },
-              { text: 'Transition', link: '/pages/9b2961/' },
-              { text: 'useReducer', link: '/pages/ef9f52/' },
-              { text: 'HOC', link: '/pages/1aa093/' },
-              { text: 'ref', link: '/pages/cda0c4/' },
-              { text: '优化相关问题', link: '/pages/586997/' },
-              { text: 'Suspense', link: '/pages/423a59/' },
-              { text: 'ErrorBoundary', link: '/pages/1616ee/' },
-              { text: '一些常见的小问题', link: '/pages/5ac595/' },
-            ],
-          },
-          {
-            text: 'SWR',
-            items: [
-              { text: '简介', link: '/pages/b56d4f/' },
-              { text: '入门', link: '/pages/28e1bf/' },
-              { text: '配置和条件渲染', link: '/pages/cb9d48/' },
-              { text: '传入参数', link: '/pages/bfd9ad/' },
-            ],
-          },
-          {
-            text: 'recoil',
-            items: [
-              { text: '入门', link: '/pages/f70c18/' },
-              { text: 'Selector详解', link: '/pages/2abc22/' },
-            ],
-          },
-        ],
-      },
-      {
-        text: 'Vue',
-        link: "/categories/?category=工具/",
-        items: [
-          {
-            text: 'Vue核心概念',
-            items: [
-              { text: 'data', link: '/pages/28b751/' },
-              { text: '响应式原理', link: '/pages/984d41/' },
-              { text: 'Vue-Router-history', link: '/pages/f16403/' }
-            ]
-          },
-          {
-            text: 'Vue3',
-            items: [
-              { text: 'refs', link: '/pages/215460/' },
-              { text: 'reactive', link: '/pages/f5d7a4/' },
-              { text: 'computed和watch', link: '/pages/f8fb4f/' },
-              { text: 'setup语法糖', link: '/pages/4b0a99/' },
-            ]
-          },
-        ]
-      },
-      {
-        text: 'Webpack',
-        items: [
-          { text: "简介", link: '/pages/928506/' },
-          { text: "起步", link: '/pages/a6ada6/' },
-          { text: "打包css", link: '/pages/91599c/' },
-        ]
-      },
-      {
-        text: '后端',
-        items: [
-          { text: "linux-常用命令", link: '/pages/5c3eec/' },
-          { text: "linux-ubuntu", link: '/pages/fe5c4d/' },
-          { text: "linux-ssh", link: '/pages/977de5/' },
-          { text: "docker-常用命令", link: '/pages/57502f/' },
-          { text: "nodejs-执行命令行", link: '/pages/923843/' },
-        ]
-      },
-      {
-        text: '常用工具',
-        items: [
-          { text: "可视化工具集", link: '/pages/5742e4/' },
-          { text: "git-常用指令", link: '/pages/29bf33/' },
-          { text: "git-submodule", link: '/pages/de04b7/' },
-          { text: "github-cli", link: '/pages/5aec39/' },
-          { text: "vscode插件", link: '/pages/ee06bf/' },
-        ]
-      },
-      {
-        text: '随笔',
-        items: [
-          {
-            text: '心流',
-            link: '/pages/cf6f83/',
-          }
-        ]
-      },
-    ],
+    nav,
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/logo.png', // 导航栏logo
     // repo: 'xugaoyi/vuepress-theme-vdoing', // 导航栏右侧生成Github链接
@@ -254,7 +156,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     //     hostname: 'https://pake.web.id'
     //   },
     // ]
-    
+
     // 可以添加第三方搜索链接的搜索框（继承原官方搜索框的配置参数）
     // 'thirdparty-search': {
     //   thirdparty: [
@@ -283,13 +185,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     // },
 
     [
-    'one-click-copy', // 代码块复制按钮
-    {
-      copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
-      copyMessage: '复制成功', // default is 'Copy successfully and then paste it for use.'
-      duration: 1000, // prompt message display time.
-      showInMobile: false, // whether to display on the mobile side, default: false.
-    },
+      'one-click-copy', // 代码块复制按钮
+      {
+        copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
+        copyMessage: '复制成功', // default is 'Copy successfully and then paste it for use.'
+        duration: 1000, // prompt message display time.
+        showInMobile: false, // whether to display on the mobile side, default: false.
+      },
     ],
 
     [
