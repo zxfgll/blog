@@ -3,9 +3,9 @@
 - [主题：vuepress-theme-vdoing](https://doc.xugaoyi.com/)
 
 todo : 
-1. [ ] vdoing/components/catalogue.vue, 无限级目录结构改造
-2. [ ] docs/.vuepress/config.ts : 导航栏自动生成
-3. [ ] docs/index.md : features-imgUrl ： 图片更换
+~~1. [ ] vdoing/components/catalogue.vue, 无限级目录结构改造~~
+2. [ x ] docs/.vuepress/config.ts : 导航栏自动生成
+~~3. [  ] docs/index.md : features-imgUrl ： 图片更换~~
 4. [ ] 同步更新[掘金文章](https://juejin.cn/creator/home)
 5. [ ] [搜索引擎推送](https://blog.csdn.net/qq_41187256/article/details/79734463)
 6. [ x ] **telegram**爬取频道资源 : [python api](https://docs.telethon.dev/en/stable/)
@@ -20,3 +20,4 @@ todo :
     4.  [ ] redux
     5.  [ ] dva
 12. [ ] vue
+13. [ ] SEO优化 , https://github.com/ekoeryanto/vuepress-plugin-sitemap , https://github.com/lorisleiva/vuepress-plugin-seo
