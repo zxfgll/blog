@@ -219,22 +219,22 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     [
       'vuepress-plugin-comment', // 评论
       {
-        choosen: 'gitalk',
+        choosen : 'valine',
         options: {
-          clientID: 'ec2783accc21fe665f7e',
-          clientSecret: 'c9262f2e46aa50662c09c6f02ced9752a59512cb',
-          repo: 'blog-comment', // GitHub 仓库
-          owner: 'Lemonnnnnnnnnnn', // GitHub仓库所有者
-          admin: ['Lemonnnnnnnnnnn'], // 对仓库有写权限的人
-          // distractionFreeMode: true,
-          pagerDirection: 'last', // 'first'正序 | 'last'倒序
-
-          // id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
-          // title: '「评论」<%- frontmatter.title %>', // GitHub issue 的标题
-          // labels: ['Gitalk', 'Comment'], // GitHub issue 的标签
-          // body:
-          //   '页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>', // GitHub issue 的内容
-        },
+          el: '#valine-vuepress-comment',
+          appId: 'D4MMMMX8q5VdzpnjISkIxCWL-gzGzoHsz',
+          appKey: 'aMT7OSl1hdle7bt3GvklynGD'
+        }
+        // choosen: 'gitalk',
+        // options: {
+        //   clientID: 'ec2783accc21fe665f7e',
+        //   clientSecret: 'c9262f2e46aa50662c09c6f02ced9752a59512cb',
+        //   repo: 'blog-comment', // GitHub 仓库
+        //   owner: 'Lemonnnnnnnnnnn', // GitHub仓库所有者
+        //   admin: ['Lemonnnnnnnnnnn'], // 对仓库有写权限的人
+        //   // distractionFreeMode: true,
+        //   pagerDirection: 'last', // 'first'正序 | 'last'倒序
+        // },
       },
     ],
     [
