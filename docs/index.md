@@ -1,7 +1,7 @@
 ---
 home: true
 # heroImage: /img/web.png
-heroText: lemon's blog
+heroText: 四十五度人生
 tagline: 输出是最好的输入，记录每一刻。
 # actionText: 立刻进入 →
 # actionLink: /web/

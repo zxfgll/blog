@@ -15,7 +15,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: "Lemon's blog",
+      title: "四十五度人生",
       description: 'web前端技术博客。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github,webpack等技术文章。',
     }
   },
@@ -73,8 +73,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
-      avatar: '/img/logo.png',
-      name: 'Lemon Lin',
+      avatar: '/img/avatar.png',
+      name: '四十五度人生',
       slogan: '踌躇前行的人',
     },
 
