@@ -13,3 +13,6 @@
 [submodule "codes/python-demo"]
 	path = codes/python-demo
 	url = git@github.com:Lemonnnnnnnnnnn/python-demo.git
+[submodule "codes/c-demo"]
+	path = codes/c-demo
+	url = git@github.com:Lemonnnnnnnnnnn/c-demo.git
