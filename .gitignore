@@ -19,3 +19,4 @@ urls.txt
 
 pnpm-lock.yaml
 .pnpm-debug.log
+.pnpm-store
