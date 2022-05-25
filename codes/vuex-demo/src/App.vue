@@ -4,11 +4,11 @@
 import countVue from './components/count.vue';
 import countGetterVue from './components/count-getter.vue';
 import mutationVue from './components/mutation.vue';
+import actionsVue from './components/actions.vue';
 </script>
 
 <template>
-  <!-- <countGetterVue /> -->
-  <mutationVue />
+  <actionsVue />
 </template>
 
 <style>
