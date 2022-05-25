@@ -18,7 +18,10 @@ export default {
         }
     },
     computed: {
-        ...mapState(['count' , 'imgUrl'])
+        // ...mapState(['count' , 'imgUrl'])
+        imgUrl(){
+            return this.$store.state.imgModule.imgUrl
+        }
     },
     methods: {
         add() {
