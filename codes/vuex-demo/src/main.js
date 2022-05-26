@@ -17,7 +17,7 @@ const imgModule = {
   },
   mutations: {
     setImgUrl(state, { url }) {  // 这里的 `state` 对象是模块的局部状态
-      console.log(url);
+      console.log( '进入mutation处理'  );
       state.imgUrl = url
     }
   },
@@ -43,6 +43,15 @@ const imgModule = {
     
   },
   
+}
+
+const myPlugin = store =>{
+  // store初始化时执行
+  console.log('初始化中间件');
+  store.subscribe((mutation , state)=>{// commit(mutation)之后执行
+    console.log('当前触发的mutation是' , mutation.type);
+    console.log('当前触发的mutation的负载payload是' , mutation.payload);
+  }) 
 }
 
 // 创建一个新的 store 实例
@@ -74,7 +83,10 @@ const store = createStore({
   },
   modules:{
     imgModule
-  }
+  },
+  plugins:[
+    myPlugin,
+  ]
 })
 
 

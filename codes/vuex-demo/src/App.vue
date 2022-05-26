@@ -5,6 +5,7 @@ import countVue from './components/count.vue';
 import countGetterVue from './components/count-getter.vue';
 import mutationVue from './components/mutation.vue';
 import actionsVue from './components/actions.vue';
+import countV3Vue from './components/count-v3.vue';
 </script>
 
 <template>
