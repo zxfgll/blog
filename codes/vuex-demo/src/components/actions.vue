@@ -8,20 +8,24 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapMutations, mapActions, createNamespacedHelpers } from 'vuex'
 const url = 'https://api.waifu.im/random'
 
+const { mapState } = createNamespacedHelpers('imgModule')
+
 export default {
-    data(){
+    data() {
         return {
-            ready : false,
+            ready: false,
         }
     },
     computed: {
-        // ...mapState(['count' , 'imgUrl'])
-        imgUrl(){
-            return this.$store.state.imgModule.imgUrl
-        }
+        ...mapState({
+            imgUrl: state => state.imgUrl
+        })
+        // ...mapState('imgModule', {
+        //     imgUrl: state => state.imgUrl
+        // })
     },
     methods: {
         add() {
@@ -32,7 +36,7 @@ export default {
             })
         },
         getImage() {
-            this.$store.dispatch('getImage', { url }).then(()=>{
+            this.$store.dispatch('getImage', { url }).then(() => {
                 this.$data.ready = true
             })
         },
