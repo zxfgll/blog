@@ -7,6 +7,9 @@ export const useCounterStore = defineStore('counter' , {
         increment(){
             this.num ++
         }
+    },
+    getters:{
+        userName : (state) => (name )=> `hello , count : ${state.num} , name :  ${name}`
     }
 })
 
