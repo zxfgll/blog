@@ -1,35 +1,73 @@
+const { opendirSync } = require('fs');
 const fs = require('fs'); // 文件模块
 const path = require('path'); // 路径模块
 const docsRoot = path.join(__dirname, '..', 'docs'); // docs文件路径
 
-class Node {
-    constructor(path) {
-        // this.name = path.win32.basename
+
+class File {
+    /**
+     * 
+     * @param {*} dirent dirent对象 
+     * @param {*} parent Map对象
+     */
+    constructor(dirent , parent) {
+        this.name = dirent.name
+        this.entity = dirent
+        this.parent = parent
     }
 }
 
 class FileMap {
     constructor() {
-        this.Map = new Map()
-        this.root = fs.opendirSync(docsRoot)
+        this.root = opendirSync(docsRoot)
+        this.dictory = new Map()
+        this.dictory.set('root' , this.root)
     }
 
-    readFileList = async (dir = this.root, parent = null) => {
-        
-        // for await (const dirent of dir){
-        //     console.log(dirent);
-        // }
+    readFileList = async (dir = this.root, parent = this.dictory) => {
+        for await (const dirent of dir){
+            if(dirent.isDirectory()){
+                const dictory_path = path.join(dir.path , dirent.name)
+                const new_root = opendirSync(dictory_path)
+                const new_dictory = new Map()
+                new_dictory.set('root' , new_root)
+
+                parent.set(dirent.name , new_dictory)
+                this.readFileList(new_root , new_dictory)
+            }else{
+                const file = new File(dirent , parent)
+                parent.set(dirent.name , file)
+            }
+        }
     }
 
     run = () => {
         this.readFileList()
     }
+
+    test2  = () =>{
+        return new Promise((resolve , reject)=>{
+            setTimeout(()=>{
+                resolve(1)
+            },1000)
+        })
+    }
+
+    test = async() =>{
+        this.asd = await this.test2()
+    }
 }
 
 const fileMap = new FileMap()
 
-fileMap.readFileList()
+// fileMap.readFileList()
 
+async function getRes () {
+    await fileMap.readFileList()
+    console.log(111);
+}
+
+getRes()
 
 
 // function readFileList2(dir = docsRoot) {
