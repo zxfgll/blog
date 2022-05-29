@@ -1,10 +1,16 @@
-const { opendirSync, accessSync, constants } = require('fs');
+const { opendirSync, accessSync, constants, mkdirSync, writeFileSync, readFileSync } = require('fs');
 const path = require('path'); // 路径模块
 const moment = require('moment');
-const { mkdirSync } = require('fs');
-const { writeFileSync } = require('fs');
+const matter = require('gray-matter'); // front matter解析器 https://github.com/jonschlinkert/gray-matter
 const docsRoot = path.join(__dirname, '..', 'docs'); // docs文件路径
 const catalogueName = '00.目录页'
+
+function resolveMatter(path) {
+    let dataStr = readFileSync(path, 'utf8');// 读取每个md文件的内容
+    const fileMatterObj = matter(dataStr) // 解析md文件的front Matter。 fileMatterObj => {content:'剔除frontmatter后的文件内容字符串', data:{<frontmatter对象>}, ...}
+    let matterData = fileMatterObj.data; // 得到md文件的front Matter
+    return matterData
+}
 
 class File {
     /**
@@ -15,9 +21,10 @@ class File {
     constructor(dirent, parent) {
         this.name = dirent.name
         this.entity = dirent
-
         this.parent = parent ? parent.get('root') : null
         this.depth = parent ? parent.get('root').depth + 1 : 0
+
+        // this.path = path.join(parent.path ? parent.path : docsRoot , this.name)
     }
 }
 
@@ -37,18 +44,6 @@ class Directory {
         this.depth = parent ? parent.get('root').depth + 1 : 0
     }
 }
-
-/**
- * 实现方法：
- * 1.   获取yaml头部
-
-/**
- * 生成导航栏
- *  1. 读取00.目录页， 文件夹名作为text，文件名作为items，读取文件获取Link
- *  2. 读取FileMap对象，如果没有第三级目录 
- *      1. 用第二级目录名查找导航栏对象text，若有，push。若无，新建。
- *      2. 父级文件夹名作为text ，文件名作为items，读取文件获取link。 
- */
 
 class FileMap {
     constructor(docsRoot) {
@@ -84,12 +79,35 @@ class FileMap {
         }
     }
 
-    getListWithDepth = (depth) => {
+    getFileList = () => {
+        let list = []
+        const reg = /.+(?=.md)/
+
+        const search = (dictionary = this.dictionary) => {
+            if (dictionary.constructor === File) {
+                if (!reg.test(dictionary.name)) return
+                if (dictionary.parent.path.indexOf(catalogueName) !== -1) return
+                list.push(dictionary)
+            } else {
+                for (let [key, value] of dictionary) {
+                    if (key !== 'root') {
+                        search(value)
+                    }
+                }
+            }
+
+        }
+
+        search()
+
+        return list
+    }
+
+    getDirListWithDepth = depth => {
         let list = []
 
         /**
-         * 
-         * @param {*} dictionary Map字典 
+         * @param {Map} dictionary 
          */
         const search = (dictionary = this.dictionary) => {
             if (dictionary.constructor === File) return
@@ -117,7 +135,6 @@ class NavItem {
         this.permalink = `/${fileName}/`
         this.title = fileName
         this.date = moment().format('YYYY-MM-DD HH:mm:ss')
-        // this.name = 'Catalogue'
     }
 }
 
@@ -131,7 +148,7 @@ class Nav {
         const generateCatalogueMap = async () => {
             const fileMap = new FileMap(this.rootPath)
             await fileMap.readFileList()
-            const list = fileMap.getListWithDepth(3)
+            const list = fileMap.getDirListWithDepth(3)
 
             const dir = new Map()
 
@@ -190,10 +207,83 @@ class Nav {
         generateFile(catalogueMap)
     }
 
-    getNavConfig() {
+    async getNavConfig() {
+        const root = opendirSync(this.cataloguePath)
+        let list = [
+            { text: '首页', link: '/' },
+        ]
 
+        const mapCatelogueDir = async () => {
+            for await (const dirent of root) {
+                if (!dirent.isDirectory()) continue
+                const direntPath = path.join(root.path, dirent.name)
+                const config = {
+                    text: dirent.name,
+                    items: []
+                }
+
+                const fileRoot = opendirSync(direntPath)
+
+                for await (const file of fileRoot) {
+                    const reg = /.+(?=.md)/
+                    config.items.push({
+                        text: file.name,
+                        link: `/${reg.exec(file.name)[0]}/`
+                    })
+                }
+                list.push(config)
+            }
+        }
+
+        const mapIndividualFile = async () => {
+            const fileMap = new FileMap(this.rootPath)
+            await fileMap.readFileList()
+            const files = fileMap.getFileList()
+            const dirMap = new Map()
+
+            for (const file of files) {
+                const reg = /\d+\.(.+)/
+                const parentName = file.parent.name
+                const fileName = file.name
+
+                const filePath = path.join(file.parent.path, fileName)
+                let dirPureName, filePureName
+
+                if (!reg.test(parentName)) continue
+                if (!reg.test(fileName)) continue
+
+                dirPureName = reg.exec(parentName)[1]
+                filePureName = reg.exec(fileName)[1]
+
+                const mdData = resolveMatter(filePath)
+
+                if (!dirMap.get(dirPureName)) {
+                    dirMap.set(dirPureName, [{ text: filePureName, link: mdData.permalink }])
+                } else {
+                    dirMap.get(dirPureName).push({ text: filePureName, link: mdData.permalink })
+                }
+            }
+
+
+            for(const [key , value] of dirMap){
+                list.push({
+                    text : key,
+                    items : value
+                })
+            }
+        }
+
+        await mapCatelogueDir()
+        await mapIndividualFile()
+
+        return list
     }
 }
 
+
 const nav = new Nav(docsRoot, catalogueName)
-// nav.generateCatalogueFile()
+nav.getNavConfig()
+
+
+
+
