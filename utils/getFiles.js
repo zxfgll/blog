@@ -41,16 +41,8 @@ class Directory {
 /**
  * 实现方法：
  * 1.   获取yaml头部
- * 2.   实现文件夹的深度数据
- * 3.   导航栏类
- */
 
 /**
- * 预处理：
- * 如果有第三级目录 
- *      1.  在00.目录页下 创建第二级目录文件夹
- *      2.  将第三级目录名作为link生成Catalogue的markdown文件，存放在第二季目录文件夹下 
- * 
  * 生成导航栏
  *  1. 读取00.目录页， 文件夹名作为text，文件名作为items，读取文件获取Link
  *  2. 读取FileMap对象，如果没有第三级目录 
@@ -168,38 +160,28 @@ class Nav {
             return dir
         }
 
-        const fileExist = (path) =>{
+        const fileExist = (path) => {
             try {
                 accessSync(path, constants.F_OK);
             } catch (err) {
                 return false
             }
             return true
-        } 
+        }
 
         const generateFile = (catalogueMap) => {
             for (const [dirname, files] of catalogueMap) {
                 const dirPath = path.join(this.cataloguePath, dirname)
-                if(fileExist(dirPath)) continue
+                if (fileExist(dirPath)) continue
 
                 mkdirSync(dirPath)
-                
-                for(const file of files){
-                    const filePath = path.join(dirPath , `${file.title}.md`)
-                    
-                    if(fileExist(filePath)) continue
-                    const content = `---
-                    pageComponent: 
-                        name: Catalogue
-                        data:
-                            key:${file.key}
-                            description:${file.description}
-                    date : ${file.date}
-                    title: ${file.title}
-                    permalink: ${file.permalink}
-                    ---`
-                    
-                    writeFileSync(filePath , content)
+
+                for (const file of files) {
+                    const filePath = path.join(dirPath, `${file.title}.md`)
+
+                    if (fileExist(filePath)) continue
+                    const content = `---\npageComponent:\n\tname: Catalogue\n\tdata:\n\t\tkey:${file.key}\n\t\tdescription:${file.description}\ndate : ${file.date}\ntitle: ${file.title}\npermalink: ${file.permalink}\n---`
+                    writeFileSync(filePath, content)
                 }
             }
         }
@@ -214,4 +196,4 @@ class Nav {
 }
 
 const nav = new Nav(docsRoot, catalogueName)
-nav.generateCatalogueFile()
+// nav.generateCatalogueFile()
