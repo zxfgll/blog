@@ -2,13 +2,17 @@ const essay = require('./essay')
 const react = require('./React')
 const vue = require('./Vue')
 const tools = require('./tools')
-const webpack = require('./webpack')
+const javaScript = require('./javaScript')
+const daily = require('./daily')
+const endPoint = require('./end-point')
 
 module.exports = [
     {text : '首页' , link : '/'},
     react,
     vue,
-    webpack,
+    javaScript,
+    endPoint,
     tools,
-    essay
+    essay,
+    daily
 ]
