@@ -6,13 +6,9 @@ import { defineConfig4CustomTheme, UserPlugins } from 'vuepress/config'
 import { VdoingThemeConfig } from 'vuepress-theme-vdoing/types'
 import dayjs from 'dayjs'
 import baiduCode from './config/baiduCode' // 百度统计hm码
-import Nav from './nav/index'
-
-const { generateCatalogueFile, getNavConfig } = Nav
+import nav from './nav/index'
 
 const config = async () => {
-  await generateCatalogueFile()
-  const nav = await getNavConfig()
 
   return defineConfig4CustomTheme<VdoingThemeConfig>({
     // theme: 'vdoing', // 使用npm包主题
