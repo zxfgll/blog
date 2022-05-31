@@ -152,12 +152,13 @@ const config = async () => {
       'fulltext-search',
       'ribbon',
       'cursor-effects',
-      // [
-      //   'sitemap',
-      //   {
-      //     hostname: 'https://pake.web.id'
-      //   },
-      // ]
+      'vuepress-plugin-smooth-scroll',
+      [
+        'sitemap',
+        {
+          hostname: 'http://www.linyuchen.cloud/',
+        },
+      ],
 
       // 可以添加第三方搜索链接的搜索框（继承原官方搜索框的配置参数）
       // 'thirdparty-search': {

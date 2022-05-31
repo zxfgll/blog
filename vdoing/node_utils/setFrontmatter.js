@@ -63,6 +63,9 @@ tags:
 title: ${file.name}
 date: ${dateStr}
 permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? os.EOL + 'sidebar: auto' : ''}${cateStr}${tagsStr}
+sitemap:
+  exclude: false
+  changefreq: monthly
 ---
 `;
 
