@@ -21,14 +21,20 @@ main();
 function main() {
     const files = readFileList(); // 读取所有md文件数据
 
-    for(let i = 0 ; i < files.length && i < 100 ; i ++){
+    const list = []
+
+    for (let i = 0; i < files.length; i++) {
         const { data } = matter(fs.readFileSync(files[i].filePath, 'utf8'));
 
         if (data.permalink) {
             const link = `\r\n${DOMAIN}${data.permalink}`;
-            // console.log(link)
-            reqData.urlList.push(link)
+            list.push(link)
         }
+    }
+    list.sort(() => 0.5 - Math.random())
+
+    for(let i = 0 ; i < 100 ; i ++){
+        reqData.urlList.push(list[i])
     }
 
 }
