@@ -13,5 +13,13 @@ module.exports = {
             text: 'python',
             link: '/pages/847b47/',
         },
+        {
+            text: 'java',
+            link: '/pages/32f8d9/',
+        },
+        {
+            text : 'mysql',
+            link: '/pages/5382f3/',
+        }
     ]
 }
