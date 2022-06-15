@@ -16,6 +16,3 @@
 [submodule "codes/typeScript-demo"]
 	path = codes/typeScript-demo
 	url = git@github.com:Lemonnnnnnnnnnn/typeScript-demo.git
-[submodule "codes/java-demo"]
-	path = codes/java-demo
-	url = git@github.com:Lemonnnnnnnnnnn/java-demo.git
