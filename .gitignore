@@ -22,3 +22,6 @@ pnpm-lock.yaml
 .pnpm-store
 
 codes/java-demo
+
+temp.*
+temp
