@@ -12,6 +12,10 @@ module.exports = {
         {
             text : '什么样的悲剧电影令人动容',
             link : '/pages/e00c8f/'
+        },
+        {
+            text : '计划为你带来了什么',
+            link : '/pages/c7fa62/'
         }
     ]
 }
