@@ -16,6 +16,10 @@ module.exports = {
         {
             text : '计划为你带来了什么',
             link : '/pages/c7fa62/'
+        },
+        {
+            text : '他人即地狱',
+            link : '/pages/bc91d6/'
         }
     ]
 }
